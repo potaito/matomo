@@ -8,6 +8,19 @@
     {% elseif value is null %}
     {% elseif value is emptyString %}
         ''
+    {% elseif value is empty %}
+        []
+    {% elseif value is iterable %}
+        [
+        {% for item in value %}
+            {% if item is iterable %}
+                array
+            {% else %}
+                {{ item|join(', ') }}
+            {% endif %}
+            {% if not loop.last %}, {% endif %}
+        {% endfor %}
+        ]
     {% else %}
         {{ value|join(', ') }}
     {% endif %}
