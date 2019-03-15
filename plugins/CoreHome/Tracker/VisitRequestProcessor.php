@@ -116,6 +116,11 @@ class VisitRequestProcessor extends RequestProcessor
             $this->visitorRecognizer->updateVisitPropertiesFromLastVisitRow($visitProperties);
         }
 
+        $ip = $visitProperties->getProperty('location_ip');
+        if (empty($ip) || $ip === '0.0.0.0') {
+            print "IP not set! - " . $request->getIp() . "\n";
+            exit;
+        }
         return false;
     }
 
