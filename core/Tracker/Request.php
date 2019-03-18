@@ -882,7 +882,7 @@ class Request
     public function getIpString()
     {
         $cip = $this->getParam('cip');
-
+        Common::printDebug("cip: $cip");
         if (empty($cip)) {
             Common::printDebug("cip is empty");
             return IP::getIpFromHeader();
@@ -892,7 +892,8 @@ class Request
             Common::printDebug("WARN: Tracker API 'cip' was used with invalid token_auth");
             return IP::getIpFromHeader();
         }
-
+        Common::printDebug("returning cip: $cip");
+        Common::printDebug("stbip: ".IPUtils::stringToBinaryIP($cip));
         return $cip;
     }
 
