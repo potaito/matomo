@@ -894,6 +894,7 @@ class Request
         }
         Common::printDebug("returning cip: $cip");
         Common::printDebug("stbip: ".IPUtils::stringToBinaryIP($cip));
+        Common::printDebug("stbip: ".inet_pton($cip));
         return $cip;
     }
 
