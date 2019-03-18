@@ -84,6 +84,8 @@ class VisitRequestProcessor extends RequestProcessor
 
     public function processRequestParams(VisitProperties $visitProperties, Request $request)
     {
+        Common::printDebug(print_r($request->getRawParams(), true));
+
         // the IP is needed by isExcluded() and GoalManager->recordGoals()
         $visitProperties->setProperty('location_ip', $request->getIp());
 

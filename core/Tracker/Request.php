@@ -884,6 +884,7 @@ class Request
         $cip = $this->getParam('cip');
 
         if (empty($cip)) {
+            Common::printDebug("cip is empty");
             return IP::getIpFromHeader();
         }
 
