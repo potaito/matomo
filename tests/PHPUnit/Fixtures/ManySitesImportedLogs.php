@@ -109,7 +109,7 @@ class ManySitesImportedLogs extends Fixture
 
     private function trackVisits()
     {
-        //$this->logVisitsWithStaticResolver();
+        $this->logVisitsWithStaticResolver();
         //$this->logVisitsWithAllEnabled();
         $this->replayLogFile();
         $this->replayLogFile(array('--idsite' => 3));
