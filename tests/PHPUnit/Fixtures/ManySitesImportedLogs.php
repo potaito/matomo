@@ -113,6 +113,7 @@ class ManySitesImportedLogs extends Fixture
         $this->logVisitsWithAllEnabled();
         $this->replayLogFile();
         $this->replayLogFile(array('--idsite' => 3));
+        return;
         $this->logCustomFormat();
 
         if ($this->includeIisWithCustom) {
