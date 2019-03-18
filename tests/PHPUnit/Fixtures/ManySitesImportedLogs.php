@@ -111,7 +111,7 @@ class ManySitesImportedLogs extends Fixture
     {
         $this->logVisitsWithStaticResolver();
         //$this->logVisitsWithAllEnabled();
-        $this->replayLogFile();
+        /*$this->replayLogFile();
         $this->replayLogFile(array('--idsite' => 3));
         $this->logCustomFormat();
 
@@ -140,7 +140,7 @@ class ManySitesImportedLogs extends Fixture
         }
 
         $this->logWithIncludeFilters();
-        $this->logWithExcludeFilters();
+        $this->logWithExcludeFilters();*/
     }
 
     private function logWithExcludeFilters()
