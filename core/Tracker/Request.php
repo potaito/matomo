@@ -892,9 +892,9 @@ class Request
             Common::printDebug("WARN: Tracker API 'cip' was used with invalid token_auth");
             return IP::getIpFromHeader();
         }
-        Common::printDebug("returning cip: $cip");
+        Common::printDebug("returning cip: " . var_export($cip, true));
         Common::printDebug("stbip: ".IPUtils::stringToBinaryIP($cip));
-        Common::printDebug("stbip: ".inet_pton($cip));
+        Common::printDebug("stbip: ".var_export(inet_pton($cip), true));
         return $cip;
     }
 
