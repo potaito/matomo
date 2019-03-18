@@ -36,7 +36,7 @@ class ArchiveCronTest extends SystemTestCase
         $apiRequiringSegments = ['Goals.get', 'VisitFrequency.get'];
 
         $results = array();
-
+/*
         foreach (self::$fixture->getDefaultSegments() as $segmentName => $info) {
             $results[] = array('VisitsSummary.get', array('idSite'     => 'all',
                                                           'date'       => '2012-08-09',
@@ -60,7 +60,7 @@ class ArchiveCronTest extends SystemTestCase
                                                       'periods'    => array('day', 'week', 'month', 'year'),
                                                       'segment'    => 'browserCode==EP',
                                                       'testSuffix' => '_nonPreArchivedSegment'));
-
+*/
         $segments = array(ManySitesImportedLogs::SEGMENT_PRE_ARCHIVED,
                           ManySitesImportedLogs::SEGMENT_PRE_ARCHIVED_CONTAINS_ENCODED
         );
