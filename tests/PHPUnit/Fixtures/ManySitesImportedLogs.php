@@ -212,6 +212,7 @@ class ManySitesImportedLogs extends Fixture
      */
     private function logVisitsWithStaticResolver()
     {
+        @unlink(PIWIK_INCLUDE_PATH . '/out.log');
         $logFile = PIWIK_INCLUDE_PATH . '/tests/resources/access-logs/fake_logs.log'; # log file
 
         // We do not pass the "--token_auth" parameter here to make sure import_logs.py finds the auth_token
@@ -222,6 +223,9 @@ class ManySitesImportedLogs extends Fixture
                       '--recorder-max-payload-size' => '1');
 
         self::executeLogImporter($logFile, $opts);
+
+        print file_get_contents(PIWIK_INCLUDE_PATH . '/out.log');
+        exit;
     }
 
     /**

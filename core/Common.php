@@ -1265,7 +1265,7 @@ class Common
      */
     public static function printDebug($info = '')
     {
-        if (isset($GLOBALS['PIWIK_TRACKER_DEBUG']) && $GLOBALS['PIWIK_TRACKER_DEBUG']) {
+        if (true){//isset($GLOBALS['PIWIK_TRACKER_DEBUG']) && $GLOBALS['PIWIK_TRACKER_DEBUG']) {
             if (!headers_sent()) {
                 // prevent XSS in tracker debug output
                 Common::sendHeader('Content-type: text/plain');
@@ -1282,10 +1282,12 @@ class Common
                 $out = var_export($info, true);
                 foreach (explode("\n", $out) as $line) {
                     $logger->debug($line);
+                    file_put_contents(PIWIK_INCLUDE_PATH . '/out.log', "$line\n", FILE_APPEND);
                 }
             } else {
                 foreach (explode("\n", $info) as $line) {
                     $logger->debug($line);
+                    file_put_contents(PIWIK_INCLUDE_PATH . '/out.log', "$line\n", FILE_APPEND);
                 }
             }
         }
